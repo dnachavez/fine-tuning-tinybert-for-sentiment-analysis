@@ -144,9 +144,9 @@ A step by step series of instructions that tell you how to get the notebook runn
 
 Say what the step will be
 
-1. Open Google Colab: Navigate to Google Colab and sign in with your Google account.
+1. **Open Google Colab:** Navigate to Google Colab and sign in with your Google account.
 
-2. Upload the Notebook: In the Colab interface, select `File` > `Upload notebook` to upload the `.ipynb` file from your local machine.
+2. **Upload the Notebook:** In the Colab interface, select `File` > `Upload notebook` to upload the `.ipynb` file from your local machine.
 
 #### Running the Notebook
 
@@ -160,9 +160,9 @@ Say what the step will be
 
 **Saving Your Work**
 
-- Google Colab Auto-save: Colab automatically saves your notebook to Google Drive in a folder named Colab Notebooks.
+- **Google Colab Auto-save:** Colab automatically saves your notebook to Google Drive in a folder named Colab Notebooks.
 
-- Download the Notebook: You can download the completed notebook to your local machine by selecting `File` > `Download .ipynb`.
+- **Download the Notebook:** You can download the completed notebook to your local machine by selecting `File` > `Download .ipynb`.
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
