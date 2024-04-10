@@ -145,4 +145,15 @@ document.addEventListener('DOMContentLoaded', () => {
     lengthyTextButton.addEventListener('click', toggleTextType);
     formElement.addEventListener('submit', handleFormSubmit);
     backButton.addEventListener('click', resetResults);
+
+    function removeError() {
+        const errorElement = document.querySelector('.error');
+        if (errorElement) {
+            errorElement.parentNode.removeChild(errorElement);
+        }
+    }
+
+    randomTextButton.addEventListener('click', removeError);
+    lengthyTextButton.addEventListener('click', removeError);
+    analyzeButton.addEventListener('click', removeError);
 });
