@@ -33,7 +33,7 @@
 
 ## 🧐 About <a name = "about"></a>
 
-This repository hosts a project focused on fine-tuning the TinyBERT model for sentiment analysis tasks. It includes scripts for training the model with a custom dataset, analyzing text inputs to determine sentiment, and utilities for preprocessing data and evaluating model performance. The goal is to leverage the compact and efficient architecture of TinyBERT to achieve high-accuracy sentiment classification in a wide range of text data, from social media posts to customer reviews.
+This repository hosts a project focused on fine-tuning the TinyBERT model for sentiment analysis tasks. It includes scripts for training the model with a custom dataset, analyzing text inputs to determine sentiment, and utilities for preprocessing data and evaluating model performance. The goal is to leverage the compact and efficient architecture of TinyBERT to achieve high-accuracy sentiment classification in a wide range of text data, from social media posts to customer reviews. Moreover, a web application component has been added to the project, enhancing its interactivity and user engagement. This web application is designed to provide an intuitive interface for performing sentiment analysis, utilizing a Flask backend for model interaction and a dynamic frontend for displaying results.
 
 ## 🎥 Demo / Working <a name = "demo"></a>
 
@@ -92,6 +92,18 @@ For the analysis phase, the fine-tuned TinyBERT model and its tokenizer are load
 
 This entire process, from training to analysis, is encapsulated in scripts written in Python 3.6, utilizing Google Colab for its GPU capabilities during the fine-tuning phase to enhance computational efficiency.
 
+## Web Application
+
+The web application component of this project offers a user-friendly way to interact with the sentiment analysis model. It's structured into two main parts: the backend, built with Flask, and the frontend, developed with HTML, CSS, and JavaScript.
+
+### Back-end
+
+Located in the `web-app/backend` folder, the backend is responsible for running the Flask server, which interacts with the TinyBERT model to perform sentiment analysis. The main file, `api.py`, handles API requests, performing sentiment analysis on text inputs and returning the results to the frontend.
+
+### Front-end
+
+The frontend files are located in the `web-app/frontend` folder and include HTML, CSS, and JavaScript files. They provide an interactive user interface for submitting text to the backend and displaying the sentiment analysis results. The design emphasizes usability and visual appeal, ensuring a seamless experience for users.
+
 ## 🎈 Usage <a name = "usage"></a>
 
 The sentiment analysis is packaged in a Jupyter Notebook, making it easy to run and interact with the TinyBERT sentiment analysis model directly from Google Colab.
@@ -144,9 +156,9 @@ A step by step series of instructions that tell you how to get the notebook runn
 
 Say what the step will be
 
-1. Open Google Colab: Navigate to Google Colab and sign in with your Google account.
+1. **Open Google Colab:** Navigate to Google Colab and sign in with your Google account.
 
-2. Upload the Notebook: In the Colab interface, select `File` > `Upload notebook` to upload the `.ipynb` file from your local machine.
+2. **Upload the Notebook:** In the Colab interface, select `File` > `Upload notebook` to upload the `.ipynb` file from your local machine.
 
 #### Running the Notebook
 
@@ -160,9 +172,19 @@ Say what the step will be
 
 **Saving Your Work**
 
-- Google Colab Auto-save: Colab automatically saves your notebook to Google Drive in a folder named Colab Notebooks.
+- **Google Colab Auto-save:** Colab automatically saves your notebook to Google Drive in a folder named Colab Notebooks.
 
-- Download the Notebook: You can download the completed notebook to your local machine by selecting `File` > `Download .ipynb`.
+- **Download the Notebook:** You can download the completed notebook to your local machine by selecting `File` > `Download .ipynb`.
+
+### Running the Web Application
+
+1. **Navigate to the `web-app/backend` directory:** Change into the `web-app/backend` folder where the `api.py` Flask application is located.
+
+2. **Start the Flask Server:** Run `python api.py` to start the Flask server. Ensure that Flask is installed in your environment including all the libraries required.
+
+3. **Open the Frontend:** Open the `index.html` file located in the `web-app/frontend` folder in a web browser to interact with the application.
+
+**Note:** If the web application is not working, check if the host provided by Flask is similar with the host inside the `web-app/frontend/js/functions.js`, if not change it to the host provided.
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
