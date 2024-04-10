@@ -98,9 +98,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    const audio = new Audio('audio/bereal.mp3');
+    audio.preload = 'auto';
+
     function displayResults({ predicted_class, confidence, probabilities }) {
-        const audio = new Audio('audio/bereal.mp3');
-        audio.play();
+        if (audio.readyState >= 4) {
+            audio.play();
+        } else {
+            audio.addEventListener('canplaythrough', () => audio.play(), { once: true });
+        }
         const percentageProbabilities = probabilities.map(prob => (prob * 100).toFixed(2));
         resultsElement.style.display = 'block';
         resultsElement.classList.add('fade-in');
