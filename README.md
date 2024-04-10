@@ -175,6 +175,7 @@ Say what the step will be
 - **Google Colab Auto-save:** Colab automatically saves your notebook to Google Drive in a folder named Colab Notebooks.
 
 - **Download the Notebook:** You can download the completed notebook to your local machine by selecting `File` > `Download .ipynb`.
+<<<<<<< HEAD
 
 ### Running the Web Application
 
@@ -185,6 +186,8 @@ Say what the step will be
 3. **Open the Frontend:** Open the `index.html` file located in the `web-app/frontend` folder in a web browser to interact with the application.
 
 **Note:** If the web application is not working, check if the host provided by Flask is similar with the host inside the `web-app/frontend/js/functions.js`, if not change it to the host provided.
+=======
+>>>>>>> f5c48f9f44cd02ed0d936eb9e787cc76af9be140
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
