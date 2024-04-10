@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             if (response.ok) {
                 const data = await response.json();
-                displayResults(data);
+                displayResults({ ...data, text });
             } else {
                 const errorMessage = await response.text();
                 showError(errorMessage);
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const audio = new Audio('audio/bereal.mp3');
     audio.preload = 'auto';
 
-    function displayResults({ predicted_class, confidence, probabilities }) {
+    function displayResults({ predicted_class, confidence, probabilities, text }) {
         if (audio.readyState >= 4) {
             audio.play();
         } else {
@@ -113,6 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
         resultsElement.style.display = 'block';
         resultsElement.classList.add('fade-in');
         document.getElementById('predicted_class').textContent = `${(confidence * 100).toFixed(2)}% ${predicted_class} Sentiment`;
+        document.getElementById('analyzed_text').textContent = text;
         ['negative', 'neutral', 'positive'].forEach((sentiment, index) => {
             document.getElementById(`${sentiment}_probability_percentage`).textContent = `${percentageProbabilities[index]}%`;
             document.getElementById(`${sentiment}_probability_bar`).style.width = `${percentageProbabilities[index]}%`;
