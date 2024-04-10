@@ -29,6 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
             replacementElement[attr] = textElement[attr];
         });
         
+        replacementElement.value = textElement.value;
+        
         textElement.parentNode.replaceChild(replacementElement, textElement);
         textElement = replacementElement;
         isLengthy = !isLengthy;
