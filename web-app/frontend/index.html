@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="color-scheme" content="dark light">
+    <title>SentiAI - Analyze the sentiment of your text</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/utility.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f=satoshi@900,700,500,300,401,400&amp;display=swap">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body>
+    <div class="row g-0 justify-content-center gradient-bottom-right start-purple middle-indigo end-pink">
+        <div
+            class="col-md-6 col-lg-5 col-xl-5 position-fixed start-0 top-0 vh-100 overflow-y-hidden d-none d-lg-flex flex-lg-column">
+            <div class="p-12 py-xl-10 px-xl-20"><a class="d-block" href="index.html"><img src="img/logos/logo-light.png"
+                        class="h-rem-10" alt="..."></a>
+                <div class="mt-16">
+                    <h1 class="ls-tight fw-bolder display-6 text-white mb-5">Analyze the sentiment of your text using
+                        machine learning
+                    </h1>
+                    <p class="text-white text-opacity-75 pe-xl-24">Analyze and classify the sentiment of your text into
+                        positive, negative, and neutral categories.</p>
+                </div>
+            </div>
+            <div class="mt-auto ps-16 ps-xl-20"><img src="img/colab/colab-1.jpeg" class="img-fluid rounded-top-start-4"
+                    alt="..."></div>
+        </div>
+        <div
+            class="col-12 col-md-12 col-lg-7 offset-lg-5 min-vh-100 overflow-y-auto d-flex flex-column justify-content-center position-relative bg-body rounded-top-start-lg-4 border-start-lg shadow-soft-5">
+            <div class="w-md-50 mx-auto px-10 px-md-0 py-10" id="form">
+                <div class="mb-10"><a class="d-inline-block d-lg-none mb-10" href="index.html"><img
+                            src="img/logos/logo-dark.png" class="h-rem-10" alt="..."></a>
+                    <h1 class="ls-tight fw-bolder h3">Enter text for sentiment analysis</h1>
+                    <div class="mt-3 text-sm text-muted"><span>Don't have a text to analyze? Generate a</span> <a
+                            href="#" class="fw-semibold" id="random_text">random</a> text.</div>
+                </div>
+                <form action="index.html" method="post">
+                    <!-- <div class="mb-5"><label class="form-label" for="email">Email address</label> <input type="email"
+                            class="form-control" id="email"></div> -->
+                    <div class="mb-5">
+                        <div class="d-flex justify-content-between gap-2 mb-2 align-items-center"><label
+                                class="form-label mb-0" for="text">Text</label> <a href="#"
+                                class="text-sm text-muted text-primary-hover text-underline" id="lengthy_text">Have a lengthy
+                                text?</a>
+                        </div>
+                        <input type="text" class="form-control" id="text" name="text" autocomplete="off">
+                    </div>
+                    <div class="mb-5">
+                        <div class="form-check"><input class="form-check-input" type="checkbox" name="check_example"
+                                id="check_example"> <label class="form-check-label" for="check_example">Enable us to use
+                                your data to improve our model</label></div>
+                    </div>
+                    <div><button type="submit" class="btn btn-dark w-100">Analyze</button></div>
+                </form>
+            </div>
+            <div class="w-md-50 mx-auto px-10 px-md-0 py-10 text-center" id="results">
+                <a class="d-inline-block d-lg-none" href="index.html"><img src="img/logos/logo-dark.png"
+                        class="h-rem-10" alt="..."></a>
+                <div class="py-5"><span class="text-xs text-uppercase fw-semibold">Results</span></div>
+                <article class="article mw-read">
+                    <h2 id="predicted_class"></h2>
+                    <p id="analyzed_text"></p>
+                </article>
+                <div class="list-group list-group-flush">
+                    <div class="list-group-item d-flex align-items-center border-0 py-3">
+                        <div class="flex-none w-rem-10 h-rem-10"><img src="img/emojis/icons8-anime-emoji.gif"
+                                class="w-100" alt="..."></div>
+                        <div class="flex-fill ms-4 text-limit">
+                            <div class="d-flex align-items-center justify-content-between"><a href="#"
+                                    class="d-block text-sm text-heading fw-bold">Positive</a> <span
+                                    class="text-muted text-xs fw-semibold" id="positive_probability_percentage"></span>
+                            </div>
+                            <div class="progress progress-sm my-1">
+                                <div class="progress-bar bg-navy-green" id="positive_probability_bar" role="progressbar"
+                                    aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="d-flex justify-content-between text-xs text-muted text-end mt-1">
+                                <div><span class="font-weight-bold text-muted"></span></div>
+                                <div>
+                                    <p class="card-text text-muted" id="positive_probability"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item d-flex align-items-center border-0 py-3">
+                        <div class="flex-none w-rem-10 h-rem-10"><img src="img/emojis/icons8-disappointed.gif"
+                                class="w-100" alt="..."></div>
+                        <div class="flex-fill ms-4 text-limit">
+                            <div class="d-flex align-items-center justify-content-between"><a href="#"
+                                    class="d-block text-sm text-heading fw-bold">Negative</a> <span
+                                    class="text-muted text-xs fw-semibold" id="negative_probability_percentage"></span></div>
+                            <div class="progress progress-sm my-1">
+                                <div class="progress-bar bg-navy-green" id="negative_probability_bar" role="progressbar"
+                                    aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="d-flex justify-content-between text-xs text-muted text-end mt-1">
+                                <div><span class="font-weight-bold text-muted"></span></div>
+                                <div>
+                                    <p class="card-text text-muted" id="negative_probability"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item d-flex align-items-center border-0 py-3">
+                        <div class="flex-none w-rem-10 h-rem-10"><img src="img/emojis/icons8-neutral.gif" class="w-100"
+                                alt="..."></div>
+                        <div class="flex-fill ms-4 text-limit">
+                            <div class="d-flex align-items-center justify-content-between"><a href="#"
+                                    class="d-block text-sm text-heading fw-bold">Neutral</a> <span
+                                    class="text-muted text-xs fw-semibold" id="neutral_probability_percentage"></span></div>
+                            <div class="progress progress-sm my-1">
+                                <div class="progress-bar bg-navy-green" id="neutral_probability_bar" role="progressbar"
+                                    aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="d-flex justify-content-between text-xs text-muted text-end mt-1">
+                                <div><span class="font-weight-bold text-muted"></span></div>
+                                <div>
+                                    <p class="card-text text-muted" id="neutral_probability"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="py-5"><a href="#" class="fw-semibold" id="back"><i class="fa-solid fa-arrow-left"></i> Go back</a></div>
+                <!-- <div class="row g-2">
+                    <div class="col-sm-6"><a href="#" class="btn btn-neutral w-100"><span class="icon icon-sm pe-2"><img
+                                    src="img/social/github.svg" alt="..."> </span>Github</a></div>
+                    <div class="col-sm-6"><a href="#" class="btn btn-neutral w-100"><span class="icon icon-sm pe-2"><img
+                                    src="img/social/google.svg" alt="..."> </span>Google</a></div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <div
+        class="d-flex align-items-center gap-2 position-fixed bottom-0 end-0 mb-6 me-6 px-2 py-2 rounded-pill shadow-4 bg-white z-2">
+        <img src="https://developkreativity.com/wp-content/uploads/2024/01/favicon.svg" class="avatar avatar-xs"> <a
+            href="https://developkreativity.com/"
+            class="me-1 text-heading fw-bold text-xs ls-tight stretched-link copyright" target="_blank">Built by Develop
+            Kreativity</a>
+    </div>
+    <script src="js/main.js"></script>
+    <script src="js/functions.js"></script>
+</body>
+
+</html>
