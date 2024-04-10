@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         audio.play();
         const percentageProbabilities = probabilities.map(prob => (prob * 100).toFixed(2));
         resultsElement.style.display = 'block';
-        resultsElement.classList.add('fade-in'); // Add fade-in animation class
+        resultsElement.classList.add('fade-in');
         document.getElementById('predicted_class').textContent = `${(confidence * 100).toFixed(2)}% ${predicted_class} Sentiment`;
         ['negative', 'neutral', 'positive'].forEach((sentiment, index) => {
             document.getElementById(`${sentiment}_probability_percentage`).textContent = `${percentageProbabilities[index]}%`;
@@ -95,8 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function resetResults(event) {
         event.preventDefault();
-        resultsElement.classList.add('fade-out'); // Add fade-out animation class
-        formElement.classList.add('fade-in'); // Add fade-in animation class
+        resultsElement.classList.add('fade-out');
+        formElement.classList.add('fade-in');
         setTimeout(() => {
             resultsElement.style.display = 'none';
             formElement.style.display = 'block';
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (errorElement) {
                 errorElement.parentNode.removeChild(errorElement);
             }
-        }, 100); // Adjust the delay as needed
+        }, 100);
     }
 
     randomTextButton.addEventListener('click', displayRandomText);
