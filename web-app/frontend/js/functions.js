@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
             textElement.disabled = true;
             analyzeButton.innerHTML = '<i class="fa fa-rotate spin"></i> Analyzing...';
             analyzeButton.disabled = true;
-            const response = await fetch('http://192.168.254.103:5000/predict', {
+            const response = await fetch('http://0.0.0.0:5000/predict', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ text }),
