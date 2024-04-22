@@ -90,7 +90,7 @@ After fine-tuning, the model's performance is evaluated on the validation set to
 
 For the analysis phase, the fine-tuned TinyBERT model and its tokenizer are loaded into memory. The user is prompted to enter text for sentiment analysis, which the model processes in a loop until the user exits the script. Each input text is preprocessed in the same manner as the training data, and the model predicts the sentiment, outputting the classification along with confidence levels and probabilities for each sentiment category.
 
-This entire process, from training to analysis, is encapsulated in scripts written in Python 3.6, utilizing Google Colab for its GPU capabilities during the fine-tuning phase to enhance computational efficiency.
+This entire process, from training to analysis, is encapsulated in scripts written in Python 3.12.2, utilizing Google Colab for its GPU capabilities during the fine-tuning phase to enhance computational efficiency.
 
 ## Web Application
 
