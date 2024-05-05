@@ -154,8 +154,6 @@ Internet access to run Colab notebooks in the cloud
 
 A step by step series of instructions that tell you how to get the notebook running.
 
-Say what the step will be
-
 1. **Open Google Colab:** Navigate to Google Colab and sign in with your Google account.
 
 2. **Upload the Notebook:** In the Colab interface, select `File` > `Upload notebook` to upload the `.ipynb` file from your local machine.
